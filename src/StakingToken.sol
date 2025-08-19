@@ -1,6 +1,6 @@
 pragma solidity^0.5.0;
 
-contract TestToken {
+contract StakingToken {
     string constant name = "Bad ICO Token";
     string constant symbol = "IC3";
     uint8 constant decimals = 18;
