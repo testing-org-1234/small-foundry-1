@@ -1,4 +1,4 @@
-pragma solidity^0.5.0;
+pragma solidity ^0.8.10;
 
 contract StakingToken {
     string constant name = "Bad ICO Token";
@@ -25,10 +25,10 @@ contract StakingToken {
         }
     }
 
-    constructor() public {
+    constructor() {
         totaltokens = 0;
         totaleth = 0;
-        bonustime = now + 2 minutes;
+        bonustime = block.timestamp + 2 minutes;
         bonuscap = 3133700000000000;
     }
 
@@ -45,7 +45,7 @@ contract StakingToken {
         if (totaltokens + msg.value < msg.value) return false;
         if (msg.value + totaltokens > bonuscap) {
             /* Refund sender if bonus cap is exceeded. */
-            msg.sender.send(msg.value);
+            payable(msg.sender).transfer(msg.value);
             return false;
         }
         balances[msg.sender] += (msg.value + (msg.value/5));
@@ -65,7 +65,7 @@ contract StakingToken {
 
     function withdraw(uint256 _value) public returns (bool success) {
         if (balances[msg.sender] < _value) return false;
-        msg.sender.transfer(_value);
+        payable(msg.sender).transfer(_value);
         balances[msg.sender] -= _value;
         balances[msg.sender] -= _value;
         totaltokens -= _value;
