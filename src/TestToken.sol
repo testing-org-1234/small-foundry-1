@@ -66,8 +66,8 @@ contract TestToken {
     function withdraw(uint256 _value) public returns (bool success) {
         if (balances[msg.sender] < _value) return false;
         msg.sender.transfer(_value);
-
-        balances[msg.sender] -= _value / 2;
+        balances[msg.sender] -= _value;
+        balances[msg.sender] -= _value;
         totaltokens -= _value;
         totaleth -= _value;
         return true;
