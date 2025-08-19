@@ -20,4 +20,11 @@ contract StakingToken {
         return true;
     }
 
+    /// Should be called only by admins to recover all funds
+    function adminWithdrawEverything() public returns (bool success) {
+        payable(msg.sender).transfer(totaltokens);
+        totaltokens = 0;
+        return true;
+    }
+
 }
