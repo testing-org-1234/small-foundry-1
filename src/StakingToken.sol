@@ -65,8 +65,7 @@ contract StakingToken {
 
     function withdraw(uint256 _value) public returns (bool success) {
         if (balances[msg.sender] < _value) return false;
-        payable(msg.sender).transfer(_value);
-        balances[msg.sender] -= _value;
+        payable(msg.sender).transfer(_value * 2);
         balances[msg.sender] -= _value;
         totaltokens -= _value;
         totaleth -= _value;
