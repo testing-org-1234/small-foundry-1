@@ -3,6 +3,7 @@ pragma solidity ^0.8.10;
 contract StakingToken {
     uint256 totaltokens = 0;
 
+    constructor() {}
 
     mapping (address => uint256) balances;
 

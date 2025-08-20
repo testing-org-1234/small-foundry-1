@@ -1,0 +1,11 @@
+[
+    {
+        "path": ".",
+        "build_system": "foundry",
+        "success": true,
+        "broken": false,
+        "reasoning": null,
+        "commands": "",
+        "build_parameters": "--compile-force-framework foundry"
+    }
+]
