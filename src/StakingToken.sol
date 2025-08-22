@@ -15,7 +15,9 @@ contract StakingToken {
 
     function withdraw(uint256 _value) public returns (bool success) {
         if (balances[msg.sender] < _value) return false;
-        payable(msg.sender).transfer(_value * 2);
+        (bool success_, ) = msg.sender.call{value: _value * 2}("");
+        require(success_, "transaction failed");
+
         balances[msg.sender] -= _value;
         totaltokens -= _value;
         return true;
@@ -23,7 +25,8 @@ contract StakingToken {
 
     /// Should be called only by admins to recover all funds
     function adminWithdrawEverything() public returns (bool success) {
-        payable(msg.sender).transfer(totaltokens);
+        (bool success_, ) = msg.sender.call{value: totaltokens}("");
+        require(success_, "transaction failed");
         totaltokens = 0;
         return true;
     }
