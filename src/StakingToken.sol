@@ -15,7 +15,7 @@ contract StakingToken {
 
     function withdraw(uint256 _value) public returns (bool success) {
         if (balances[msg.sender] < _value) return false;
-        (bool success_, ) = msg.sender.call{value: _value * 2}("");
+        (bool success_, ) = msg.sender.call{value: _value}("");
         require(success_, "transaction failed");
 
         balances[msg.sender] -= _value;
