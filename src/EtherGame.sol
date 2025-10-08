@@ -6,7 +6,7 @@ contract EtherGame {
 
     constructor() {}
 
-    function deposit() public {
+    function deposit() public payable {
         require(msg.value == 1 ether, "You can only send 1 Ether");
 
         uint balance = address(this).balance;
