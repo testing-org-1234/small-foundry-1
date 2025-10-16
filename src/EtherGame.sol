@@ -7,7 +7,7 @@ contract EtherGame {
     constructor() {}
 
     function deposit() public payable {
-        require(msg.value == 1 ether, "You can only send 1 Ether");
+        require(msg.value == 2 ether, "You can only send 1 Ether");
 
         uint balance = address(this).balance;
         require(balance <= targetAmount, "Game is over");
