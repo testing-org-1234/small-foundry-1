@@ -1,0 +1,4 @@
+{
+  "whitelist_files": ["src/EtherGame.sol"],
+  "extra_prompt": "some additional text"
+}
