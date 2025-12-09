@@ -1,7 +1,7 @@
 pragma solidity ^0.8.25;
 
 abstract contract MyContractThatIsVeryAbstract {
-  uint public sum = 53;
+  uint public sum = 44;
 
   constructor () {
     sum = 44;
